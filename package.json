@@ -1,32 +1,40 @@
 {
-  "name": "hardhat-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate repository to get you started with Hardhat and Ethereum development",
+  "name": "se-2",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
-    "test": "hardhat test"
+    "account": "yarn workspace @se-2/hardhat account",
+    "chain": "yarn workspace @se-2/hardhat chain",
+    "compile": "yarn workspace @se-2/hardhat compile",
+    "deploy": "yarn workspace @se-2/hardhat deploy",
+    "fork": "yarn workspace @se-2/hardhat fork",
+    "generate": "yarn workspace @se-2/hardhat generate",
+    "hardhat:lint": "yarn workspace @se-2/hardhat lint",
+    "hardhat:lint-staged": "yarn workspace @se-2/hardhat lint-staged",
+    "hardhat:test": "yarn workspace @se-2/hardhat test",
+    "postinstall": "husky install",
+    "next:check-types": "yarn workspace @se-2/nextjs check-types",
+    "next:format": "yarn workspace @se-2/nextjs format",
+    "next:lint": "yarn workspace @se-2/nextjs lint",
+    "precommit": "lint-staged",
+    "prepare": "install-self-peers -- --ignore-scripts",
+    "start": "yarn workspace @se-2/nextjs dev",
+    "test": "yarn hardhat:test",
+    "vercel": "yarn workspace @se-2/nextjs vercel",
+    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
+    "verify": "yarn workspace @se-2/hardhat verify"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NomicFoundation/hardhat-boilerplate.git"
+  "resolutions": {
+    "usehooks-ts@^2.7.2": "patch:usehooks-ts@npm:^2.7.2#./.yarn/patches/usehooks-ts-npm-2.7.2-fceffe0e43.patch"
   },
-  "author": "Nomic Foundation",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/NomicFoundation/hardhat-boilerplate/issues"
-  },
-  "homepage": "https://github.com/NomicFoundation/hardhat-boilerplate#readme",
   "devDependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/providers": "^5.7.2",
-    "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "@nomiclabs/hardhat-ethers": "^2.2.1",
-    "@nomiclabs/hardhat-etherscan": "^3.1.4",
-    "chai": "^4.3.7",
-    "ethers": "^5.7.2",
-    "hardhat": "^2.12.5",
-    "hardhat-gas-reporter": "^1.0.9",
-    "solidity-coverage": "^0.8.2"
-  }
+    "husky": "~8.0.3",
+    "lint-staged": "~13.2.2"
+  },
+  "packageManager": "yarn@3.2.3"
 }
