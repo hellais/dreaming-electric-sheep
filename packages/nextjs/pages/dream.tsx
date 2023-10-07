@@ -4,7 +4,7 @@ import { FractalInferno, PRNGFactory } from "~~/components/fractal/flame";
 import React, { useEffect } from "react";
 import NoSSR from 'react-no-ssr';
 
-let fractalJSONA = [
+let fractalJSON = [
   "custom",
   {
     weight: 0.046875,
@@ -42,7 +42,8 @@ let fractalJSONA = [
     w: [0.25, 0.2, 0.55],
   },
 ];
-let fractalJSON = [
+
+let fractalJSONA = [
   "custom",
   {
     weight: 0.3,
@@ -102,7 +103,7 @@ const DreamRender = () => {
   };
 
   return (<div
-  style={{ backgroundColor: "#000", width: "800px", height: "800px" }}
+  style={{ backgroundColor: "#000", width: "100vw", height: "100%" }}
 >
   <canvas id="canvas" style={{ position: "absolute" }}></canvas>
   <div id="renderingbar" style={renderingbarStyle}></div>
@@ -121,14 +122,14 @@ const DreamViewer: NextPage = () => {
   return (
     <>
       <MetaHeader
-        title="Example UI | Scaffold-ETH 2"
+        title="Dreaming of Electric Sheep"
         description="Example UI created with 🏗 Scaffold-ETH 2, showcasing some of its features."
       >
         {/* We are importing the font this way to lighten the size of SE2. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
       </MetaHeader>
-      <div className="grid lg:grid-cols-2 flex-grow" data-theme="exampleUi">
+      <div className="grid lg:grid-cols-2 flex-grow">
       <NoSSR>
         <DreamRender />
       </NoSSR>

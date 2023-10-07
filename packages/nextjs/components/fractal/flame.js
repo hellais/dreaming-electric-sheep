@@ -113,10 +113,7 @@ export var FractalInferno = function () {
       f: function (x, y) {
         var r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
         var th = Math.atan2(y, x);
-        return [
-          (th / Math.PI) * Math.sin(Math.PI * r),
-          (th / Math.PI) * Math.cos(Math.PI * r),
-        ];
+        return [(th / Math.PI) * Math.sin(Math.PI * r), (th / Math.PI) * Math.cos(Math.PI * r)];
       },
     },
     {
@@ -124,10 +121,7 @@ export var FractalInferno = function () {
       f: function (x, y) {
         var r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
         var th = Math.atan2(y, x);
-        return [
-          (1 / r) * (Math.cos(th) + Math.sin(r)),
-          (1 / r) * (Math.sin(th) - Math.cos(r)),
-        ];
+        return [(1 / r) * (Math.cos(th) + Math.sin(r)), (1 / r) * (Math.sin(th) - Math.cos(r))];
       },
     },
     {
@@ -153,10 +147,7 @@ export var FractalInferno = function () {
         var th = Math.atan2(y, x);
         var p0 = Math.sin(th + r);
         var p1 = Math.cos(th - r);
-        return [
-          r * (Math.pow(p0, 3) + Math.pow(p1, 3)),
-          r * (Math.pow(p0, 3) - Math.pow(p1, 3)),
-        ];
+        return [r * (Math.pow(p0, 3) + Math.pow(p1, 3)), r * (Math.pow(p0, 3) - Math.pow(p1, 3))];
       },
     },
     {
@@ -166,12 +157,7 @@ export var FractalInferno = function () {
         var th = Math.atan2(y, x);
         var om =
           funcs[cfi].r ||
-          funcs[cfi].c[0] +
-            funcs[cfi].c[1] +
-            funcs[cfi].c[2] +
-            funcs[cfi].c[3] +
-            funcs[cfi].c[4] +
-            funcs[cfi].c[5];
+          funcs[cfi].c[0] + funcs[cfi].c[1] + funcs[cfi].c[2] + funcs[cfi].c[3] + funcs[cfi].c[4] + funcs[cfi].c[5];
         return [rs * Math.cos(th / 2 + om), rs * Math.sin(th / 2 + om)];
       },
     },
@@ -217,20 +203,14 @@ export var FractalInferno = function () {
     {
       name: "Popcorn",
       f: function (x, y) {
-        return [
-          x + funcs[cfi].c[2] * Math.sin(Math.tan(3 * y)),
-          y + funcs[cfi].c[5] * Math.sin(Math.tan(3 * x)),
-        ];
+        return [x + funcs[cfi].c[2] * Math.sin(Math.tan(3 * y)), y + funcs[cfi].c[5] * Math.sin(Math.tan(3 * x))];
       },
     },
     {
       name: "Power",
       f: function (x, y) {
         var th = Math.atan2(y, x);
-        var rsth = Math.pow(
-          Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)),
-          Math.sin(th)
-        );
+        var rsth = Math.pow(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), Math.sin(th));
         return [rsth * Math.cos(th), rsth * Math.sin(th)];
       },
     },
@@ -240,10 +220,7 @@ export var FractalInferno = function () {
         var r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
         var th = Math.atan2(y, x);
         var re =
-          modn(
-            r + Math.pow(funcs[cfi].c[2], 2),
-            2 * Math.pow(funcs[cfi].c[2], 2)
-          ) -
+          modn(r + Math.pow(funcs[cfi].c[2], 2), 2 * Math.pow(funcs[cfi].c[2], 2)) -
           Math.pow(funcs[cfi].c[2], 2) +
           r * (1 - Math.pow(funcs[cfi].c[2], 2));
         return [re * Math.cos(th), re * Math.sin(th)];
@@ -272,8 +249,7 @@ export var FractalInferno = function () {
     {
       name: "Bubble",
       f: function (x, y) {
-        var re =
-          4 / (Math.pow(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 2) + 4);
+        var re = 4 / (Math.pow(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 2) + 4);
         return [re * x, re * y];
       },
     },
@@ -301,10 +277,7 @@ export var FractalInferno = function () {
       f: function (x, y) {
         var p1 = Math.random();
         var p2 = Math.random();
-        return [
-          p1 * x * Math.cos(2 * Math.PI * p2),
-          p1 * y * Math.sin(2 * Math.PI * p2),
-        ];
+        return [p1 * x * Math.cos(2 * Math.PI * p2), p1 * y * Math.sin(2 * Math.PI * p2)];
       },
     },
     {
@@ -312,10 +285,7 @@ export var FractalInferno = function () {
       f: function (x, y) {
         var p1 = Math.random();
         var p2 = Math.random();
-        return [
-          p1 * Math.cos(2 * Math.PI * p2),
-          p1 * Math.sin(2 * Math.PI * p2),
-        ];
+        return [p1 * Math.cos(2 * Math.PI * p2), p1 * Math.sin(2 * Math.PI * p2)];
       },
     },
     {
@@ -341,7 +311,7 @@ export var FractalInferno = function () {
     for (var i = 0; i < funcs[fi].v.length; i++) {
       s = varis[funcs[fi].v[i]].f(
         funcs[fi].c[0] * x + funcs[fi].c[1] * y + funcs[fi].c[2],
-        funcs[fi].c[3] * x + funcs[fi].c[4] * y + funcs[fi].c[5]
+        funcs[fi].c[3] * x + funcs[fi].c[4] * y + funcs[fi].c[5],
       );
       xnew += s[0] * funcs[fi].w[i];
       ynew += s[1] * funcs[fi].w[i];
@@ -382,8 +352,7 @@ export var FractalInferno = function () {
         //Pick random varis indicies and add them to v if they aren't already there
         var maxNumOfVarisPerFunc = Math.round(Math.random() * 4) + 3;
         for (var j = 0; j < maxNumOfVarisPerFunc; j++) {
-          var varisName =
-            funcsJSON[Math.floor(Math.random() * funcsJSON.length)];
+          var varisName = funcsJSON[Math.floor(Math.random() * funcsJSON.length)];
           for (var k = 0; k < varis.length; k++) {
             if (varis[k].name == varisName) {
               if (v.indexOf(k) == -1) {
@@ -472,8 +441,7 @@ export var FractalInferno = function () {
     //-1 for none
     //1 for no rot
     final = params.final || Math.floor(Math.random() * (funcs.length + 1)) - 1;
-    cfinal =
-      params.cfinal || Math.floor(Math.random() * (funcs.length + 1)) - 1;
+    cfinal = params.cfinal || Math.floor(Math.random() * (funcs.length + 1)) - 1;
 
     canvas = document.getElementById("canvas");
     canvasWidth = canvas.width = params.canvasW || window.innerWidth;
@@ -490,17 +458,13 @@ export var FractalInferno = function () {
     canvas.style.top = top + "px";
     window.scrollTo(
       left == 0 ? canvasWidth / 2 - window.innerWidth / 2 : 0,
-      top == 0 ? canvasHeight / 2 - window.innerHeight / 2 : 0
+      top == 0 ? canvasHeight / 2 - window.innerHeight / 2 : 0,
     );
 
     ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = false;
-    freqHistogram = new Uint32Array(
-      canvasWidth * canvasHeight * Math.pow(histoScale, 2)
-    );
-    colHistogram = new Uint8Array(
-      canvasWidth * canvasHeight * Math.pow(histoScale, 2) * 3
-    );
+    freqHistogram = new Uint32Array(canvasWidth * canvasHeight * Math.pow(histoScale, 2));
+    colHistogram = new Uint8Array(canvasWidth * canvasHeight * Math.pow(histoScale, 2) * 3);
 
     zoom = params.zoom || 1;
 
@@ -591,27 +555,17 @@ export var FractalInferno = function () {
 
           //Stretch to fit canvas and histograms
           ph = [
-            Math.round(
-              (pS[0] + 2 * (canvasWidth / canvasHeight)) *
-                ((canvasHeight * histoScale) / 4)
-            ),
+            Math.round((pS[0] + 2 * (canvasWidth / canvasHeight)) * ((canvasHeight * histoScale) / 4)),
             Math.round((pS[1] + 2) * ((canvasHeight * histoScale) / 4)),
           ];
           pn = [
-            Math.round(
-              (pS[0] + 2 * (canvasWidth / canvasHeight)) * (canvasHeight / 4)
-            ),
+            Math.round((pS[0] + 2 * (canvasWidth / canvasHeight)) * (canvasHeight / 4)),
             Math.round((pS[1] + 2) * (canvasHeight / 4)),
           ];
 
           //Rotate
           if (rot > 1) {
-            ph = rotatePoint(
-              ph,
-              currentRot,
-              (canvasWidth * histoScale) / 2,
-              (canvasHeight * histoScale) / 2
-            );
+            ph = rotatePoint(ph, currentRot, (canvasWidth * histoScale) / 2, (canvasHeight * histoScale) / 2);
             pn = rotatePoint(pn, currentRot, canvasWidth / 2, canvasHeight / 2);
             currentRot = (currentRot + (2 * Math.PI) / rot) % (2 * Math.PI);
           }
@@ -633,45 +587,27 @@ export var FractalInferno = function () {
             freqHistogram[ph[1] * canvasWidth * histoScale + ph[0]] += 10;
             //Color
             colorsave = Math.floor(
-              (colHistogram[
-                ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 0
-              ] +
-                c[0] * 255) /
-                2
+              (colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 0] + c[0] * 255) / 2,
             );
-            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 0] =
-              colorsave;
+            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 0] = colorsave;
             colorsave = Math.floor(
-              (colHistogram[
-                ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 1
-              ] +
-                c[1] * 255) /
-                2
+              (colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 1] + c[1] * 255) / 2,
             );
-            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 1] =
-              colorsave;
+            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 1] = colorsave;
             colorsave = Math.floor(
-              (colHistogram[
-                ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 2
-              ] +
-                c[2] * 255) /
-                2
+              (colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 2] + c[2] * 255) / 2,
             );
-            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 2] =
-              colorsave;
+            colHistogram[ph[1] * canvasWidth * 3 * histoScale + ph[0] * 3 + 2] = colorsave;
           }
 
           //Update pixels
           if (!firstPass || (firstPass && i > 20)) {
             imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 0] =
-              c[0] * 255 +
-              imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
+              c[0] * 255 + imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
             imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 1] =
-              c[1] * 255 +
-              imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
+              c[1] * 255 + imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
             imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 2] =
-              c[2] * 255 +
-              imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
+              c[2] * 255 + imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] / 12;
             imgData.data[pn[1] * canvasWidth * 4 + pn[0] * 4 + 3] += 4;
           }
         }
@@ -717,25 +653,20 @@ export var FractalInferno = function () {
           avgCol = makeVibrant(avgCol, hueShift, satShift, lightShift);
 
           alpha = Math.log10(avgFreq) / Math.log10(maxFreq);
-          imgData.data[y * canvasWidth * 4 + x * 4 + 0] =
-            avgCol[0] * Math.pow(alpha, 1 / gamma);
-          imgData.data[y * canvasWidth * 4 + x * 4 + 1] =
-            avgCol[1] * Math.pow(alpha, 1 / gamma);
-          imgData.data[y * canvasWidth * 4 + x * 4 + 2] =
-            avgCol[2] * Math.pow(alpha, 1 / gamma);
+          imgData.data[y * canvasWidth * 4 + x * 4 + 0] = avgCol[0] * Math.pow(alpha, 1 / gamma);
+          imgData.data[y * canvasWidth * 4 + x * 4 + 1] = avgCol[1] * Math.pow(alpha, 1 / gamma);
+          imgData.data[y * canvasWidth * 4 + x * 4 + 2] = avgCol[2] * Math.pow(alpha, 1 / gamma);
           imgData.data[y * canvasWidth * 4 + x * 4 + 3] = alpha * 255;
         }
         x++;
       }
       //x increments at end so we don't need x + 1 to fill out percentage
-      renderBar.innerText =
-        "Rendering " + Math.floor((x / canvasWidth) * 100) + "%";
+      renderBar.innerText = "Rendering " + Math.floor((x / canvasWidth) * 100) + "%";
       if (x < canvasWidth) {
         setTimeout(renderLine, 1);
       } else {
         ctx.putImageData(imgData, 0, 0);
-        renderBar.innerText =
-          "Rendered with " + stepCount.toExponential(4) + " points";
+        renderBar.innerText = "Rendered with " + stepCount.toExponential(4) + " points";
       }
     }
   }
@@ -760,22 +691,14 @@ export var FractalInferno = function () {
   }
   function averageColorForCell(x, y) {
     var sum = [0, 0, 0]; // r g b
-    for (
-      var hx = x * (histoScale * 3);
-      hx < x * (histoScale * 3) + histoScale * 3;
-      hx += 3
-    ) {
+    for (var hx = x * (histoScale * 3); hx < x * (histoScale * 3) + histoScale * 3; hx += 3) {
       for (var hy = y * histoScale; hy < y * histoScale + histoScale; hy++) {
         sum[0] += colHistogram[hy * canvasWidth * histoScale * 3 + hx + 0] || 0;
         sum[1] += colHistogram[hy * canvasWidth * histoScale * 3 + hx + 1] || 0;
         sum[2] += colHistogram[hy * canvasWidth * histoScale * 3 + hx + 2] || 0;
       }
     }
-    return [
-      sum[0] / Math.pow(histoScale, 2),
-      sum[1] / Math.pow(histoScale, 2),
-      sum[2] / Math.pow(histoScale, 2),
-    ];
+    return [sum[0] / Math.pow(histoScale, 2), sum[1] / Math.pow(histoScale, 2), sum[2] / Math.pow(histoScale, 2)];
   }
 
   function weightedRand(weights) {
@@ -807,8 +730,7 @@ export var FractalInferno = function () {
     var hsl = rgb2hsl(rgbArr);
     hsl[0] = (hsl[0] + hueShift) % 360;
     hsl[1] = (hsl[1] + Math.max(satShift, 0) * 100) / (Math.abs(satShift) + 1);
-    hsl[2] =
-      (hsl[2] + Math.max(lightShift, 0) * 100) / (Math.abs(lightShift) + 1);
+    hsl[2] = (hsl[2] + Math.max(lightShift, 0) * 100) / (Math.abs(lightShift) + 1);
     return hsl2rgb(hsl[0] / 360, hsl[1] / 100, hsl[2] / 100);
   }
   function rgb2hsl(rgbArr) {
