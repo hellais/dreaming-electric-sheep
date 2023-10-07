@@ -3702,6 +3702,7 @@ __metadata:
     hardhat-gas-reporter: ~1.0.9
     prettier: ~2.8.4
     qrcode: ~1.5.1
+    seriality: "https://github.com/pouladzade/Seriality.git"
     solidity-coverage: ~0.8.2
     ts-node: ~10.9.1
     typechain: ~8.1.0
@@ -15893,6 +15894,13 @@ __metadata:
     range-parser: ~1.2.1
     statuses: 2.0.1
   checksum: 74fc07ebb58566b87b078ec63e5a3e41ecd987e4272ba67b7467e86c6ad51bc6b0b0154133b6d8b08a2ddda360464f71382f7ef864700f34844a76c8027817a8
+  languageName: node
+  linkType: hard
+
+"seriality@https://github.com/pouladzade/Seriality.git":
+  version: 1.0.0
+  resolution: "seriality@https://github.com/pouladzade/Seriality.git#commit=981282b551fac91929d41d5823ef21763434a524"
+  checksum: d02a28beb0e1955af8d1d6d934f2238fbdf111b8cd44c4c1beb6d17eae15ca01450320dc30161dbf61e77d70adc8daf5ad360eaba6718c5d0d27f78ba88aafd0
   languageName: node
   linkType: hard
 
