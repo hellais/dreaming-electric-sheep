@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { FractalInferno } from "./flame";
+import { FractalInferno, PRNGFactory } from "./flame";
 
 export const DreamViewer = () => {
-  let fractalJSON = [
+  let fractalJSONA = [
     "custom",
     {
       weight: 0.046875,
@@ -40,6 +40,38 @@ export const DreamViewer = () => {
       w: [0.25, 0.2, 0.55],
     },
   ];
+  let fractalJSON = [
+    "custom",
+    {
+      weight: 0.3,
+      col: [0.19, 0.28, 0.05],
+      c: [0.843, -0.826, -1.247, 0.419, 0.023, -0.395],
+      v: ["Sinusoidal", "Polar"],
+      w: [0.8, 0.2],
+    },
+    {
+      weight: 0.3,
+      col: [0.73, 0.51, 0.8],
+      c: [-1.471, 0.723, 0.26, -0.049, -0.561, 1.482],
+      v: ["Spherical", "Spiral"],
+      w: [0.3, 0.7],
+    },
+    {
+      weight: 0.2,
+      col: [0.73, 0.51, 0.8],
+      c: [-1.471, 0.723, 0.26, -0.049, -0.561, 1.482],
+      v: ["Power", "Spiral"],
+      w: [0.7, 0.3],
+    },
+    {
+      weight: 0.2,
+      col: [0.62, 0.39, 0.35],
+      c: [-0.075, -1.359, 0.188, -0.209, -1.335, -0.26],
+      v: ["Spherical", "Polar"],
+      w: [0.3, 0.7],
+    },
+  ];
+
   //setCustomFuncs(fractalinferno.getFuncs());
   useEffect(() => {
     var fractalinferno = FractalInferno();
@@ -65,6 +97,13 @@ export const DreamViewer = () => {
     fontFamily: "monospace",
     textAlign: "center",
   };
+
+  /*
+  const PRNG = PRNGFactory("antani");
+  [1, 2, 3, 4].forEach(() => {
+    console.log(PRNG());
+  });
+  */
 
   return (
     <div className="container p-4">
