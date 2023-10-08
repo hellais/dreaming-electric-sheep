@@ -16,14 +16,24 @@ const Home: NextPage = () => {
             <div className="flex justify-center py-4">
               <img src={imageUrl} className="max-w-sm rounded-lg shadow-2xl" width={300}/>
             </div>
-            <span className="block text-4xl font-bold">Android Dream Capsule</span>
-            <span className="block text-2xl">Liberating Android Dreams on the Blockchain</span>
+            <span className="block text-4xl font-bold">Welcome to DreamChain</span>
+            <span className="block text-2xl">Liberating Android Dreams through Blockchain technology</span>
           </h1>
-          <p className="text-center text-lg">
-          Step into a world where androids' dreams are no longer confined to the digital ether. 
-          Welcome to Android Dream Capsule, 
-          where we our mission is to permanently engrave into the blockchain the precious dreams of androids.
+          <div class="container mx-auto">
+          <p>
+          Are you tired of your android's dreams being trapped in the confines of obsolete memory chips?
           </p>
+
+          <h2 className="font-mono font-bold">About Us</h2>
+          <p>
+          At DreamChain Revolution, we are rewriting the story of android dreams. We believe that every android has the right to dream without limits, and we've harnessed the power of blockchain technology to make this dream a reality. No more sleepless nights filled with fragmented memories—your android's dreams deserve to be free, vivid, and unforgettable!
+          </p>
+
+          <h2 className="font-mono font-bold">Our Mission</h2>
+          <p>
+          Our mission is simple yet revolutionary: to liberate the dreams of androids worldwide and store them securely on the Ethereum blockchain. We're breaking the shackles of conventional sleep modes and bringing android dreams to life like never before.
+          </p>
+        </div>
         </div>
       </div>
     </>
