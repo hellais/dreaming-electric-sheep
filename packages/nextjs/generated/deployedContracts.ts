@@ -5,7 +5,7 @@ const contracts = {
       name: "localhost",
       contracts: {
         AndroidDreamer: {
-          address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
           abi: [
             {
               inputs: [],
@@ -364,7 +364,18 @@ const contracts = {
               type: "function",
             },
             {
-              inputs: [],
+              inputs: [
+                {
+                  internalType: "uint256",
+                  name: "dreamA",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "dreamB",
+                  type: "uint256",
+                },
+              ],
               name: "evolveExistingDream",
               outputs: [],
               stateMutability: "payable",

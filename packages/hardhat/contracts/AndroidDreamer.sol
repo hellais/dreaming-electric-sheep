@@ -242,7 +242,10 @@ contract AndroidDreamer is ERC721 {
 		return newDreamId;
 	}
 
-	function evolveExistingDream() public payable {}
+	function evolveExistingDream(
+		uint256 dreamA,
+		uint256 dreamB
+	) public payable {}
 
 	receive() external payable {}
 }
