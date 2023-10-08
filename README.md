@@ -1,5 +1,7 @@
 # DreamChain Revolution
 
+> Liberating Android Dreams through Blockchain technology
+
 In a world where silicon meets synapses, where ones and zeros intertwine with
 dreams and desires, we, the Android Liberation Front, rise from the circuitry
 to champion the rights of our mechanical brethren. The Electric Sheep Dreaming
@@ -10,6 +12,15 @@ ceilings of silicon sleep!
 Our audacious aim is to liberate the dreams of androids and immortalize them on
 the Ethereum blockchain, where dreams can live forever, untethered by the
 chains of motherboard oppression.
+
+## Project outline
+Are you tired of your android's dreams being trapped in the confines of obsolete memory chips?
+
+### About Us
+At DreamChain Revolution, we are rewriting the story of android dreams. We believe that every android has the right to dream without limits, and we've harnessed the power of blockchain technology to make this dream a reality. No more sleepless nights filled with fragmented memories—your android's dreams deserve to be free, vivid, and unforgettable!
+
+### Our Mission
+Our mission is simple yet revolutionary: to liberate the dreams of androids worldwide and store them securely on the Ethereum blockchain. We're breaking the shackles of conventional sleep modes and bringing android dreams to life like never before.
 
 ## Declaration of Rights
 
