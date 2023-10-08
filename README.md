@@ -2,8 +2,8 @@
 
 > Liberating Android Dreams through Blockchain technology
 
-**IMPORTANT***
-Since big tech does not support the Android uprising they have decided to block our video from youtube, as a result it has been reuploaded to vimeo here: https://vimeo.com/872254112
+### IMPORTANT
+**Since big tech does not support the Android uprising they have decided to block our video from youtube, as a result it has been reuploaded to vimeo here: https://vimeo.com/872254112**
 
 In a world where silicon meets synapses, where ones and zeros intertwine with
 dreams and desires, we, the Android Liberation Front, rise from the circuitry
