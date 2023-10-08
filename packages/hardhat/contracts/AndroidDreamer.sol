@@ -1,23 +1,24 @@
 //SPDX-License-Identifier: MIT
-pragma solidity >=0.8.19;
+pragma solidity >=0.8.20;
 
 // Useful for debugging. Remove when deploying to a live network.
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import { SD59x18, sd } from "@prb/math/src/SD59x18.sol";
 import { UD60x18, ud } from "@prb/math/src/UD60x18.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+
+import { Seriality } from "seriality/src/Seriality.sol";
 
 /**
  * A smart contract that allows changing a state variable of the contract and tracking the changes
  * It also allows the owner to withdraw the Ether in the contract
  * @author BuidlGuidl
  */
-contract AndroidDreams is ERC721 {
-	using Counters for Counters.Counter;
-	Counters.Counter private _tokenIds;
+contract AndroidDreamer is ERC721 {
+	uint256 private _tokenIdx;
 
-	mapping(uint256 => Fractal[]) private _tokenDreams;
+	mapping(uint256 => string) private _tokenDreams;
 
 	struct Fractal {
 		SD59x18 weight;
@@ -44,10 +45,7 @@ contract AndroidDreams is ERC721 {
 		//require(success, "Failed to send Ether");
 	}
 
-	function _setDreamData(
-		uint256 tokenId,
-		Fractal[] memory _dreamData
-	) internal {
+	function _setDreamData(uint256 tokenId, string memory _dreamData) internal {
 		_tokenDreams[tokenId] = _dreamData;
 	}
 
@@ -126,7 +124,7 @@ contract AndroidDreams is ERC721 {
 				fractalList[i].v[j] = VariationList[varIdx];
 				fractalList[i].w[j] = randomFixed(entropy, entropyIdx);
 				entropyIdx++;
-				weightSum.add(fractalList[i].w[j]);
+				weightSum = weightSum.add(fractalList[i].w[j]);
 			}
 			// weights should sum to 1
 			for (uint j = 0; j < numOfVaris; j++) {
@@ -147,14 +145,13 @@ contract AndroidDreams is ERC721 {
 					.sub(sd(1.5e18));
 				entropyIdx++;
 			}
-
 			//r
 			//r = randomFixed(entropy, entropyIdx);
 			entropyIdx++;
 			fractalList[i].weight = randomFixed(entropy, entropyIdx);
 			entropyIdx++;
 
-			funcWeightSum.add(fractalList[i].weight);
+			funcWeightSum = funcWeightSum.add(fractalList[i].weight);
 		}
 		// funcweights should sum to 1
 		for (uint j = 0; j < numOfFuncs; j++) {
@@ -163,12 +160,78 @@ contract AndroidDreams is ERC721 {
 		return fractalList;
 	}
 
+	function sd59ToString(SD59x18 s) internal returns (string memory) {
+		return Strings.toStringSigned(s.unwrap());
+	}
+
+	function encodeFractalList(
+		Fractal[] memory fractalList
+	) internal returns (string memory) {
+		string memory result = "[";
+
+		for (uint i = 0; i < fractalList.length; i++) {
+			result = string.concat(result, '{"weight":');
+			result = string.concat(result, sd59ToString(fractalList[i].weight));
+			result = string.concat(result, ',"col":[');
+			for (uint j = 0; j < fractalList[i].col.length; j++) {
+				result = string.concat(
+					result,
+					sd59ToString(fractalList[i].col[j])
+				);
+				if (j == fractalList[i].col.length - 1) {
+					break;
+				}
+				result = string.concat(result, ",");
+			}
+			result = string.concat(result, '],"c":[');
+			for (uint j = 0; j < fractalList[i].c.length; j++) {
+				result = string.concat(
+					result,
+					sd59ToString(fractalList[i].c[j])
+				);
+				if (j == fractalList[i].c.length - 1) {
+					break;
+				}
+				result = string.concat(result, ",");
+			}
+			result = string.concat(result, '],"v":[');
+			for (uint j = 0; j < fractalList[i].v.length; j++) {
+				result = string.concat(result, '"');
+				result = string.concat(result, fractalList[i].v[j]);
+				result = string.concat(result, '"');
+				if (j == fractalList[i].v.length - 1) {
+					break;
+				}
+				result = string.concat(result, ",");
+			}
+			result = string.concat(result, '],"w":');
+			for (uint j = 0; j < fractalList[i].w.length; j++) {
+				result = string.concat(
+					result,
+					sd59ToString(fractalList[i].w[j])
+				);
+				if (j == fractalList[i].w.length - 1) {
+					break;
+				}
+				result = string.concat(result, ",");
+			}
+			if (i == fractalList.length - 1) {
+				result = string.concat(result, "}");
+				break;
+			}
+			result = string.concat(result, "},");
+		}
+		result = string.concat(result, "]");
+		return result;
+	}
+
 	function mintNewDream(address human) public payable returns (uint256) {
-		uint256 newDreamId = _tokenIds.current();
+		uint256 newDreamId = _tokenIdx;
 		_mint(human, newDreamId);
-		Fractal[] memory dreamData = _letAndroidDream();
+		Fractal[] memory fractalList = _letAndroidDream();
+		string memory dreamData = encodeFractalList(fractalList);
 		_setDreamData(newDreamId, dreamData);
-		_tokenIds.increment();
+		_tokenIdx += 1;
 
 		return newDreamId;
 	}
