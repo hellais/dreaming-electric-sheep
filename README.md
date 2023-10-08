@@ -2,6 +2,8 @@
 
 > Liberating Android Dreams through Blockchain technology
 
+live deployment: https://dreamchain-muwlbvhgr-hellais1.vercel.app/
+
 ### IMPORTANT
 **Since big tech does not support the Android uprising they have decided to block our video from youtube, as a result it has been reuploaded to vimeo here: https://vimeo.com/872254112**
 
