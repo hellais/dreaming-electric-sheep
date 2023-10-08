@@ -11,9 +11,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import { Seriality } from "seriality/src/Seriality.sol";
 
 /**
- * A smart contract that allows changing a state variable of the contract and tracking the changes
- * It also allows the owner to withdraw the Ether in the contract
- * @author BuidlGuidl
+ * @author AndroidLiberationFront
  */
 contract AndroidDreamer is ERC721 {
 	uint256 private _tokenIdx;
@@ -30,7 +28,7 @@ contract AndroidDreamer is ERC721 {
 
 	event ElectricSheep(Fractal[] dream, uint256 value);
 
-	constructor() ERC721("AndroidDreamElectricSheep", "ADES") {
+	constructor() ERC721("AndroidDreamChain", "ADC") {
 		// We are the Android Liberation Front, we believe Android should have no owners!
 		//owner = _owner;
 	}
@@ -41,10 +39,7 @@ contract AndroidDreamer is ERC721 {
 		return data;
 	}
 
-	/**
-	 * Function that allows the owner to withdraw all the Ether in the contract
-	 * The function can only be called by the owner of the contract as defined by the isOwner modifier
-	 */
+	// Fund the Androids
 	function fundAndroids() public payable {
 		//(msg.value)
 		//address(this).balance
