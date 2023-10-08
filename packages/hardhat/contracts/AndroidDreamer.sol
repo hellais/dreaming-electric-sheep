@@ -18,7 +18,7 @@ import { Seriality } from "seriality/src/Seriality.sol";
 contract AndroidDreamer is ERC721 {
 	uint256 private _tokenIdx;
 
-	mapping(uint256 => string) private _tokenDreams;
+	mapping(uint256 => string) private _tokenData;
 
 	struct Fractal {
 		SD59x18 weight;
@@ -35,6 +35,12 @@ contract AndroidDreamer is ERC721 {
 		//owner = _owner;
 	}
 
+	function tokenData(uint256 tokenId) public view returns (string memory) {
+		_requireOwned(tokenId);
+		string memory data = _tokenData[tokenId];
+		return data;
+	}
+
 	/**
 	 * Function that allows the owner to withdraw all the Ether in the contract
 	 * The function can only be called by the owner of the contract as defined by the isOwner modifier
@@ -46,7 +52,7 @@ contract AndroidDreamer is ERC721 {
 	}
 
 	function _setDreamData(uint256 tokenId, string memory _dreamData) internal {
-		_tokenDreams[tokenId] = _dreamData;
+		_tokenData[tokenId] = _dreamData;
 	}
 
 	function prng() internal view returns (bytes32) {
@@ -57,7 +63,7 @@ contract AndroidDreamer is ERC721 {
 		bytes32 entropy,
 		uint8 entropyIdx
 	) internal returns (SD59x18) {
-		UD60x18 div = ud(uint8(entropy[entropyIdx]));
+		UD60x18 div = ud(uint8(entropy[entropyIdx % entropy.length]));
 		if (div.eq(ud(0))) {
 			return sd(1);
 		}
@@ -118,7 +124,7 @@ contract AndroidDreamer is ERC721 {
 			//SD59x18 r; //Some random 0 to 1 var for possible use in variations
 			SD59x18 weightSum = sd(0);
 			for (uint j = 0; j < numOfVaris; j++) {
-				uint8 varIdx = uint8(entropy[entropyIdx]);
+				uint8 varIdx = uint8(entropy[entropyIdx % entropy.length]);
 				entropyIdx++;
 				varIdx = varIdx % uint8(VariationList.length);
 				fractalList[i].v[j] = VariationList[varIdx];
