@@ -133,7 +133,6 @@ export const useBurnerWallet = (): TBurnerSigner => {
     } else {
       console.log("⚠ Could not create burner wallet");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [publicClient.chain.id]);
 
   /**
@@ -166,7 +165,6 @@ export const useBurnerWallet = (): TBurnerSigner => {
       saveBurner();
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [burnerSk, publicClient.chain.id]);
 
   return {

@@ -71,7 +71,6 @@ export const useAutoConnect = (): void => {
       window.localStorage.setItem(WAGMI_WALLET_STORAGE_KEY, JSON.stringify(""));
       setWalletId("");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accountState.isConnected, accountState.connector?.name]);
 
   useEffectOnce(() => {
